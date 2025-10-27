@@ -1,0 +1,15 @@
+name: Accessibility Scanner
+on: workflow_dispatch
+
+jobs:
+  accessibility_scanner:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: github/accessibility-scanner@v2
+        with:
+          urls: |
+            https://nivelles.staging.imio.be/
+          repository: remdub/a11y-scanner
+          token: ${{ secrets.GH_TOKEN }}
+          cache_key: nivelles-a11y-cache-1
+
